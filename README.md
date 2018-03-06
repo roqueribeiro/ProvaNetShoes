@@ -29,9 +29,11 @@ The data we provide is a static JSON file under `/public/data`.
 * Git: https://git-scm.com/
 * Node: https://nodejs.org/en/
 
-## NetShoes Shopping Cart Development Test
 
-# Demonstration
+
+# NetShoes Shopping Cart Development Test
+
+## Demonstration
 [Live Demo](http://iwantproject.com.br/#/)
 
 ## Build Setup
