@@ -7,11 +7,9 @@ Vue.use(Router)
 Vue.use(Vuex)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'StartPage',
-      component: StartPage
-    }
-  ]
+  routes: [{
+    path: '/',
+    name: 'StartPage',
+    component: StartPage
+  }]
 })

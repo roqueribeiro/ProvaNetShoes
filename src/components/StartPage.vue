@@ -1,12 +1,12 @@
 <template>
   <div class="startPage">
     <b-navbar type="dark" variant="dark">
-        <b-navbar-nav class="ml-auto">
-            <b-button variant="dark" v-on:click="showCartWindow()">
-                <icon name="shopping-bag"></icon>
-                <b-badge pill variant="warning">{{ Object.values(productsInCart).length }}</b-badge>
-            </b-button>
-        </b-navbar-nav>
+      <b-navbar-nav class="ml-auto">
+        <b-button variant="dark" v-on:click="showCartWindow()">
+          <icon name="shopping-bag"></icon>
+          <b-badge pill variant="warning">{{ Object.values(productsInCart).length }}</b-badge>
+        </b-button>
+      </b-navbar-nav>
     </b-navbar>
     <transition name="fade">
       <Cart v-if="this.$store.getters.cartWindowState" />

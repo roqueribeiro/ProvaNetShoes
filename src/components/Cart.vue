@@ -1,57 +1,54 @@
 <template>
-    <div class="cart">
-        <div class="cartHeader">
-            <div class="cartHeaderIcon">
-                <icon scale="2" name="shopping-bag"></icon>
-                <b-badge pill variant="warning">{{ Object.values(productsInCart).length }}</b-badge>
-            </div>
-            <div class="cartHeaderTitle">
-                <p>SACOLA</p>
-            </div>
-            <b-button size="sm" variant="link" v-on:click="hideCartWindow()">
-                <icon scale="2.2" name="times"></icon>
-            </b-button>
-        </div>
-        <ul v-if="productsInCart && productsInCart.length">
-            <li v-for="product of productsInCart">
-                <div class="productPicture" v-bind:style="{ background: 'url(' + getPicturePath(product) + ')'  }"></div>
-                <div class="productSpecs">
-                    <p>{{ product.title }}</p>
-                    <span>{{ product.availableSizes[Math.floor(Math.random() * ((product.availableSizes.length-1) - 0 + 1)) + 0] }} | {{ product.style }}</span>
-                </div>
-                <div class="productBuyOptions">
-                    <b-button size="sm" variant="link" @click="removeFromCart(product)">
-                        <icon scale="1.3" name="times"></icon>
-                    </b-button>
-                    <p>{{ product.currencyFormat }} {{ (product.price/1).toFixed(2).replace('.', ',').toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }}</p>
-                </div>
-            </li>
-        </ul>
-        <div class="cartFooter">
-            <div class="cartBuyTotalValue">
-                <p>Subtotal</p>
-                <p>{{ sumProductsInCart() }}<br /><small>{{ monthsToPay(10) }}</small></p>
-            </div>
-            <div class="cartBuyButton">
-                <b-button variant="dark" @click="showModal=true">COMPRAR</b-button>
-            </div>
-            <b-modal
-                v-model="showModal"
-                id="modalFinish" 
-                centered 
-                title="Compra Finalizada"
-                header-text-variant="dark"
-                body-text-variant="dark"
-                footer-text-variant="dark">
-                <b-container fluid>
-                    <h3>Total Pago: <strong>{{ sumProductsInCart() }}</strong></h3>
-                </b-container>
-                <div slot="modal-footer" class="w-100">
-                    <b-btn size="sm" class="float-right" variant="outline-dark" @click="showModal=false">Fechar</b-btn>
-                </div>
-            </b-modal>
-        </div>      
+  <div class="cart">
+    <div class="cartHeader">
+      <div class="cartHeaderIcon">
+        <icon scale="2" name="shopping-bag"></icon>
+        <b-badge pill variant="warning">{{ Object.values(productsInCart).length }}</b-badge>
+      </div>
+      <div class="cartHeaderTitle">
+        <p>SACOLA</p>
+      </div>
+      <b-button size="sm" variant="link" v-on:click="hideCartWindow()">
+        <icon scale="2.2" name="times"></icon>
+      </b-button>
     </div>
+    <ul v-if="productsInCart && productsInCart.length">
+      <li v-for="product of productsInCart">
+        <div class="productPicture" v-bind:style="{ background: 'url(' + getPicturePath(product) + ')'  }"></div>
+        <div class="productSpecs">
+          <p>{{ product.title }}</p>
+          <span>{{ product.availableSizes[Math.floor(Math.random() * ((product.availableSizes.length-1) - 0 + 1)) + 0] }} | {{ product.style }}</span>
+        </div>
+        <div class="productBuyOptions">
+          <b-button size="sm" variant="link" @click="removeFromCart(product)">
+            <icon scale="1.3" name="times"></icon>
+          </b-button>
+          <p>{{ product.currencyFormat }} {{ (product.price/1).toFixed(2).replace('.', ',').toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }}</p>
+        </div>
+      </li>
+    </ul>
+    <div class="cartFooter">
+      <div class="cartBuyTotalValue">
+        <p>Subtotal</p>
+        <p>{{ sumProductsInCart() }}<br />
+          <small>{{ monthsToPay(10) }}</small>
+        </p>
+      </div>
+      <div class="cartBuyButton">
+        <b-button variant="dark" @click="showModal=true">COMPRAR</b-button>
+      </div>
+      <b-modal v-model="showModal" id="modalFinish" centered title="Compra Finalizada" header-text-variant="dark" body-text-variant="dark" footer-text-variant="dark">
+        <b-container fluid>
+          <h3>Total Pago:
+            <strong>{{ sumProductsInCart() }}</strong>
+          </h3>
+        </b-container>
+        <div slot="modal-footer" class="w-100">
+          <b-btn size="sm" class="float-right" variant="outline-dark" @click="showModal=false">Fechar</b-btn>
+        </div>
+      </b-modal>
+    </div>
+  </div>
 </template>
 
 <script>

@@ -10,7 +10,7 @@
         <div class="productBuyOptions">
           <hr />
           <span>
-            {{ product.currencyFormat }} 
+            {{ product.currencyFormat }}
             <strong>{{ (product.price/1).toFixed(2).replace('.', ',').toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".").split(',')[0] }}</strong>,{{ product.price.toFixed(2).toString().split('.')[1] }}
           </span>
           <b-button size="sm" variant="outline-dark" @click="addToCart(product)">Adicionar na sacola</b-button>
@@ -23,12 +23,8 @@
       </li>
     </ul>
     <transition name="fade">
-      <b-alert :show="dismissCountDown"
-              dismissible
-              variant="warning"
-              @dismissed="dismissCountdown=0"
-              @dismiss-count-down="countDownChanged">
-        Produto adicionado na sacola <br /> {{dismissCountDown}} Segundos...
+      <b-alert :show="dismissCountDown" dismissible variant="warning" @dismissed="dismissCountdown=0" @dismiss-count-down="countDownChanged">
+        Produto adicionado na sacola <br /> {{ dismissCountDown }} Segundos...
       </b-alert>
     </transition>
   </div>
@@ -41,7 +37,7 @@ export default {
   name: "Products",
   data() {
     return {
-      dismissSecs: 5,
+      dismissSecs: 2,
       dismissCountDown: 0,
       searchText: "",
       products: [],
@@ -115,6 +111,7 @@ export default {
   margin-left: -200px;
   bottom: 0;
   background: #ffc107;
+  border: none;
   color: #533f02;
   z-index: 1000;
 }
