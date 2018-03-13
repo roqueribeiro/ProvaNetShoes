@@ -72,6 +72,10 @@ npm test
 
 # Screenshots
 
+## Product List
+
 ![image](http://iwantproject.com.br/pagina-principal.png)
+
+## Shopping Cart
 
 ![image](http://iwantproject.com.br/pagina-carrinho.png)
